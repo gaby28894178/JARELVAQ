@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' />
+    <title>Título de la página</title>
+    <link rel='stylesheet' href='/assets/css/style.css'>
+    <link rel='stylesheet' href='/assets/css/nav.css'>
+    <link rel='stylesheet' href='/assets/css/Card.css'>
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <!-- LIBRERIA BISON ICONOS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- <script defer src="/main.js"></script> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
+
+  
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo rozha-one-regular">JARELV<span>AQ </span></a>
+        <div class="pellotas">
+          <div class="pelota roja"></div>
+          <div class="pelota amarilla"></div>
+          <div class="pelota verde"></div>
+          <div class="pelota azul"></div>
+          <div class="pelota violeta"></div>
+        </div>
+        <input type="checkbox" id="side-menu" class="side-menu">
+        <label for="side-menu" class="hamb">
+          <span class="hamb-line"></span>
+        </label>
+        <nav class="nav" id="mainNav">
+            <ul class="menu">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="./Productos.html">Productos</a></li>
+                <li><a href="/assets/html/contacto.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+      <div class="productos-filter" id="targetDiv">
+        <div><span>Buscar</span></div>
+        <div>
+          <select id="option">
+            <option value="">Productos</option>
+            <option value="bidones">Bidones</option>
+            <option value="botellas">Botellas</option>
+            <option value="trabajos">Trabajos</option>
+            <option value="potes">Potes</option>
+          </select>
+        </div>
+      </div>
+      <div class="app_container"></div>
+    </main>
+  
+    <script>
+      const productos = [
+        // nuevas fotos 
+        // bidones 
+        {
+          codigo:"0001-01",
+          name:"Bidones-grandes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 38 MM",
+          tipo:"plastico",
+          capasidad:"5 L ",
+          bolson:"Bolson 25 UNID",
+          imagen:"/assets/img/Gallery/5L/001.PNG",
+          description:"Bidones-grandes con manija",
+          description2:"Bidones distintos colores ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"Bidones-grandes"
+        },
+        {
+          codigo:"0002-02",
+          name:"Bidones-grandes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 38 MM",
+          tipo:"plastico",
+          capasidad:"5 L ",
+          bolson:"Bolson 25 UNID",
+          imagen:"/assets/img/Gallery/5L/002.PNG",
+          description:"Bidones 5l con manija",
+          description2:" colores opcionales ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"Bidones-grandes"
+        },
+        {
+          codigo:"0003-03",
+          name:"Bidones-grandes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 38 MM",
+          tipo:"plastico",
+          capasidad:"5 L ",
+          bolson:"Bolson 25 UNID",
+          imagen:"/assets/img/Gallery/5L/003.PNG",
+          description:"Bidones-grandes con manija",
+          description2:"Bidones distintos colores ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"Bidones-grandes"
+        },
+        {
+          codigo:"0004-04",
+          name:"Bidones-grandes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 38 MM",
+          tipo:"plastico",
+          capasidad:"5 L ",
+          bolson:"Bolson 25 UNID",
+          imagen:"/assets/img/Gallery/5L/004.PNG",
+          description:"Bidones-grandes con manija",
+          description2:"Bidones distintos colores ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"Bidones-grandes"
+        },
+        {
+          codigo:"0005-05",
+          name:"Bidones-grandes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 38 MM",
+          tipo:"plastico",
+          capasidad:"5 L ",
+          bolson:"Bolson 25 UNID",
+          imagen:"/assets/img/Gallery/5L/005.PNG",
+          description:"Bidones-grandes con manija",
+          description2:"Bidones distintos colores ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"Bidones-grandes"
+        },
+        // botellas
+        {
+          codigo:"0006-06",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/-1.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0007-07",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/-2.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        //// BIDONES nuevos 
+        {
+          codigo:"0008-08",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/-3.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0009-09",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/-4.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0010-10",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/-5.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0011-11",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/00-.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },  {
+          codigo:"0012-12",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/00-1.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+
+        {
+          codigo:"0013-13",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/001.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0014-14",
+          name:"Botellas 1 y 2 l",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/002.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0015-15",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/003.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0016-16",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/005.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0016-16",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/006.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0017-17",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/007.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+
+        {
+          codigo:"0018-18",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/008.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+
+
+        {
+          codigo:"0019-19",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/009.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+
+        {
+          codigo:"0020-20",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/010.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0021-21",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/012.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0022-22",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/013.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+        {
+          codigo:"0023-23",
+          name:"Botellas ",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/botellas/014.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"botellas"
+        },
+
+        //Potes
+
+        {
+          codigo:"0024-24",
+          name:"Potes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/potes/001.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"potes"
+        },
+        {
+          codigo:"0025-25",
+          name:"Potes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/potes/002.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"potes"
+        },
+        {
+          codigo:"0026-26",
+          name:"Potes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/potes/003.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"potes"
+        },
+        {
+          codigo:"0027-27",
+          name:"Potes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/potes/004.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"potes"
+        },
+        {
+          codigo:"0028-28",
+          name:"Potes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/potes/005.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"potes"
+        },
+
+        {
+          codigo:"0029-29",
+          name:"Potes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/potes/006.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"potes"
+        },
+        
+        {
+          codigo:"0030-30",
+          name:"Potes",
+          material:"PEAD - VIRGEN",
+          tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          capasidad:"1y 2  L ",
+          bolson:"Bolson de 80 y 50 UNID",
+          imagen:"/assets/img/Gallery/potes/007.PNG",
+          description:"Botella Plastico",
+          description2:"Botella de 1 a 2 l ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"potes"
+        },
+        {
+          codigo:"0031-31",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230426_185057.png",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros ",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+        {
+          codigo:"0032-32",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230426_185122.jpg",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+        {
+          codigo:"0033-33",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230426_185232.jpg",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+        {
+          codigo:"0034-34",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230426_185539.jpg",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+        {
+          codigo:"0035-35",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230428_135147.jpg",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+
+        {
+          codigo:"0036-36",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230428_135219.jpg",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+
+        {
+          codigo:"0037-37",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230523_201417.png",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+        {
+          codigo:"0038-38",
+          name:"Trabajos a Terceros",
+          material:"PEAD - VIRGEN",
+          // tapa:"Tapa Ø 30 MM",
+          tipo:"plastico",
+          // capasidad:"1y 2  L ",
+          bolson:"trabajos a terceros",
+          imagen:"/assets/img/chica pagina web/Trabajos a terceros/PhotoRoom_20230523_201735.png",
+          description:"trabajos a terceros",
+          description2:"trabajos a terceros",
+          colores:["Amatillo","Rojo","Blanco"],
+          categoria:"trabajos"
+        },
+
+
+
+
+
+
+
+
+
+      ];
+  
+      const contenedor = document.querySelector('.app_container');
+      const opciones = document.querySelectorAll('#option');
+  
+      function mostrarProductos(categoria) {
+        contenedor.innerHTML = '';
+        const productosFiltrados = categoria === 'galeria' ? productos : productos.filter(producto => producto.name.toLowerCase().includes(categoria));
+        productosFiltrados.forEach(producto => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.innerHTML = `
+            <p></p>
+            <div>
+              <p class="producto_cod ">Cod: ${producto.codigo}</p>
+              <hr />    
+              <img class="producto_img" src="${producto.imagen}" alt="${producto.name}">   
+              <p class="description_productos">Descripcion </p>
+              <p class="producto_name">${producto.name}</p>
+              <p class="producto_material">Marteriales: ${producto.material}</p>
+              <p class="producto_tipo">Tipo: ${producto.tipo}</p>
+              <p class="producto_capasidad">Capacidad: ${producto.capasidad}</p>
+              <p class="producto_bolson">${producto.bolson}</p>
+              <p class="producto_tapa">${producto.tapa}</p>
+            </div>`;
+          contenedor.appendChild(card);
+        });
+      }
+  
+      opciones.forEach(opcion => {
+        opcion.addEventListener('change', function(event) {
+          const valorSeleccionado = event.target.value.split(' ')[0];
+          mostrarProductos(valorSeleccionado);
+        });
+      });
+  
+      mostrarProductos('galeria');
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const sideMenuCheckbox = document.getElementById('side-menu');
+    const main = document.querySelector('main');
+
+    sideMenuCheckbox.addEventListener('change', function() {
+      console.log(sideMenuCheckbox.checked)
+      if (sideMenuCheckbox.checked) {
+      main.classList.add('espacio');
+     } else {
+      main.classList.remove('espacio');
+    }
+  });
+});
+    </script>
+    <footer class="conten-footer">
+
+        <div class="titulo-foter-conten"><h2 class="titulo-foter">Forma de Contactarnos</h2></div>
+        <div class="parrafo-conten"><p class="parrafo">Dejamos a tu dispocicion nuestros canales </p></div>
+        <div class="conten-footel-list">
+          <ol class="list-footer">
+            <li class="items-footer"><i class='bx bxl-facebook-circle'></i></li>
+            <li class="items-footer"><i class='bx bxl-instagram-alt' ></i></li>
+            <li class="items-footer"><i class='bx bxl-twitter' ></i></li>
+            <li class="items-footer"><i class='bx bxl-whatsapp-square' ></i></li>
+          </ol>
+
+      </div>
+    </footer>
+</body>
+</html>
