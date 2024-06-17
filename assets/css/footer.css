@@ -25,6 +25,7 @@
     margin-top: -12em;
     position: fixed;
     bottom: 0;
+    z-index: 222;
 
 }
 
@@ -62,6 +63,7 @@
     i{
     font-size: 3em;
     color: var(--fondo2);
+    z-index: 21;
     &:hover{
         transition: var(--texto-claro);
         cursor: pointer;
